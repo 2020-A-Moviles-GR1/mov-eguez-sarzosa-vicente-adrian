@@ -1,4 +1,5 @@
 import java.util.*
+import java.util.function.Consumer
 
 fun main(args: Array<String>) {
     print("Hola")
@@ -45,6 +46,36 @@ fun main(args: Array<String>) {
     ) // Named Parameters
     calcularSueldo(700.00)
     calcularSueldo(sueldo = 650.00)
+
+    val arregloConstante: Array<Int> = arrayOf(1, 2, 3)
+    val arregloCumpleanos: ArrayList<Int> = arrayListOf(30, 31, 22, 23, 20)
+    print(arregloCumpleanos)
+    arregloCumpleanos.add(24)
+    print(arregloCumpleanos)
+    // arregloCumpleanos.remove(30)
+    arregloCumpleanos.remove(30)
+    print(arregloCumpleanos)
+
+    arregloCumpleanos
+            .forEach {
+                println("Valor de la iteracion " + it)
+            }
+    arregloCumpleanos
+            .forEach { valorIteracion: Int ->
+                println("Valor iteracion: " + valorIteracion)
+            }
+    arregloCumpleanos
+            .forEach(
+                    { valorIteracion: Int ->
+                        println("Valor iteracion: " + valorIteracion)
+                    }
+            )
+
+    arregloCumpleanos
+            .forEachIndexed {
+                println("Valor de la iteracion " + it)
+            }
+
 }
 
 fun calcularSueldo(
