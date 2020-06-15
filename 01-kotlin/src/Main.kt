@@ -93,10 +93,26 @@ fun main(args: Array<String>) {
             .map { iterador: Int ->
                 val nuevoValor = iterador * -1
                 val otroValor = nuevoValor * 2
-                return@map otroValor
+                return@map Date()
             }
     println(respuestaMap)
     println(respuestaMapDos)
+    println(arregloCumpleanos)
+
+    // Filter -> FILTRAR EL ARREGLO
+    // 1) Devolver una expresion (TRUE o FALSE)
+    // 2) Nuevo arreglo que cumpla esa expresion
+    val respuestaFilter = arregloCumpleanos
+            .filter {
+                iteracion:Int ->
+                val esMayorA23 = iteracion > 23
+                return@filter esMayorA23
+            }
+    arregloCumpleanos
+            .filter {
+                iteracion:Int -> iteracion > 23
+            }
+    println(respuestaFilter)
     println(arregloCumpleanos)
 }
 
