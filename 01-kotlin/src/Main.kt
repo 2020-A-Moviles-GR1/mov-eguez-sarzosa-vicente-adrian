@@ -1,4 +1,5 @@
 import java.util.*
+import java.util.function.Consumer
 
 fun main(args: Array<String>) {
     print("Hola")
@@ -45,6 +46,74 @@ fun main(args: Array<String>) {
     ) // Named Parameters
     calcularSueldo(700.00)
     calcularSueldo(sueldo = 650.00)
+
+    val arregloConstante: Array<Int> = arrayOf(1, 2, 3)
+    val arregloCumpleanos: ArrayList<Int> = arrayListOf(30, 31, 22, 23, 20)
+    print(arregloCumpleanos)
+    arregloCumpleanos.add(24)
+    print(arregloCumpleanos)
+    // arregloCumpleanos.remove(30)
+    arregloCumpleanos.remove(30)
+    print(arregloCumpleanos)
+
+
+    arregloCumpleanos
+            .forEach { valorIteracion: Int ->
+                println("Valor iteracion: " + valorIteracion)
+            }
+    arregloCumpleanos
+            .forEach(
+                    { valorIteracion: Int ->
+                        println("Valor iteracion: " + valorIteracion)
+                    }
+            )
+
+    // Operadores -> TODOS LOS LENGUAJES
+    // ForEach no devuelve nada -> Unit
+    arregloCumpleanos
+            .forEach { iteracion: Int ->
+                println("Valor de la iteracion " + iteracion)
+                println("Valor con -1 = ${iteracion * -1} ")
+            }
+
+    val respuestaArregloForEach = arregloCumpleanos
+            .forEachIndexed { index: Int, iteracion: Int ->
+                println("Valor de la iteracion " + iteracion)
+            }
+    println(respuestaArregloForEach) // Void Unit
+
+    // MAP -> Muta el arreglo (Cambia el arreglo)
+    // 1) Enviemos el nuevo valor de la iteracion
+    // 2) Nos devuelve es un NUEVO ARREGLO con los valores modificados
+    val respuestaMap = arregloCumpleanos
+            .map { iterador: Int ->
+                iterador * -1
+            }
+    val respuestaMapDos= arregloCumpleanos
+            .map { iterador: Int ->
+                val nuevoValor = iterador * -1
+                val otroValor = nuevoValor * 2
+                return@map Date()
+            }
+    println(respuestaMap)
+    println(respuestaMapDos)
+    println(arregloCumpleanos)
+
+    // Filter -> FILTRAR EL ARREGLO
+    // 1) Devolver una expresion (TRUE o FALSE)
+    // 2) Nuevo arreglo que cumpla esa expresion
+    val respuestaFilter = arregloCumpleanos
+            .filter {
+                iteracion:Int ->
+                val esMayorA23 = iteracion > 23
+                return@filter esMayorA23
+            }
+    arregloCumpleanos
+            .filter {
+                iteracion:Int -> iteracion > 23
+            }
+    println(respuestaFilter)
+    println(arregloCumpleanos)
 }
 
 fun calcularSueldo(
