@@ -68,16 +68,36 @@ fun main(args: Array<String>) {
                     }
             )
 
+    // Operadores -> TODOS LOS LENGUAJES
+    // ForEach no devuelve nada -> Unit
     arregloCumpleanos
-            .forEach {
-                println("Valor de la iteracion " + it)
+            .forEach { iteracion: Int ->
+                println("Valor de la iteracion " + iteracion)
+                println("Valor con -1 = ${iteracion * -1} ")
             }
 
-    arregloCumpleanos
-            .forEachIndexed { index:Int, it:Int ->
-                println("Valor de la iteracion " + it)
+    val respuestaArregloForEach = arregloCumpleanos
+            .forEachIndexed { index: Int, iteracion: Int ->
+                println("Valor de la iteracion " + iteracion)
             }
+    println(respuestaArregloForEach) // Void Unit
 
+    // MAP -> Muta el arreglo (Cambia el arreglo)
+    // 1) Enviemos el nuevo valor de la iteracion
+    // 2) Nos devuelve es un NUEVO ARREGLO con los valores modificados
+    val respuestaMap = arregloCumpleanos
+            .map { iterador: Int ->
+                iterador * -1
+            }
+    val respuestaMapDos= arregloCumpleanos
+            .map { iterador: Int ->
+                val nuevoValor = iterador * -1
+                val otroValor = nuevoValor * 2
+                return@map otroValor
+            }
+    println(respuestaMap)
+    println(respuestaMapDos)
+    println(arregloCumpleanos)
 }
 
 fun calcularSueldo(
