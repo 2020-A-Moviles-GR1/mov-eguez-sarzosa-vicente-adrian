@@ -56,10 +56,7 @@ fun main(args: Array<String>) {
     arregloCumpleanos.remove(30)
     print(arregloCumpleanos)
 
-    arregloCumpleanos
-            .forEach {
-                println("Valor de la iteracion " + it)
-            }
+
     arregloCumpleanos
             .forEach { valorIteracion: Int ->
                 println("Valor iteracion: " + valorIteracion)
@@ -72,7 +69,12 @@ fun main(args: Array<String>) {
             )
 
     arregloCumpleanos
-            .forEachIndexed {
+            .forEach {
+                println("Valor de la iteracion " + it)
+            }
+
+    arregloCumpleanos
+            .forEachIndexed { index:Int, it:Int ->
                 println("Valor de la iteracion " + it)
             }
 
