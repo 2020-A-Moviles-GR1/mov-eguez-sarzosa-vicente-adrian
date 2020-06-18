@@ -107,8 +107,7 @@ fun main(args: Array<String>) {
                 val esMayorA23 = iteracion > 23
                 return@filter esMayorA23
             }
-    arregloCumpleanos
-            .filter { it > 23 }
+    arregloCumpleanos.filter { it > 23 }
     println(respuestaFilter)
     println(arregloCumpleanos)
 
@@ -140,9 +139,9 @@ fun main(args: Array<String>) {
     // ("a", "b", "c", "d")
     // "abcd"
     val respuestaReduce = arregloCumpleanos // Acumulador 0
-            .reduce { acumulador, iteracion ->
+            .reduce( { acumulador, iteracion ->
                 return@reduce acumulador + iteracion
-            }
+            })
     println(respuestaReduce)
 
     val respuestaFold = arregloCumpleanos
@@ -152,6 +151,8 @@ fun main(args: Array<String>) {
                         return@fold acumulador - iteracion
                     }
             )
+    // arregloCumpleanos.reduceRigth
+    // arregloCumpleanos.foldRight
     println(respuestaFold)
     // forEach -> nada
     // map -> Arreglo
@@ -160,6 +161,18 @@ fun main(args: Array<String>) {
     // any -> Booleano
     // reduce -> Valor
     // fold -> Valor
+
+    // Reducir el daño en 20%
+    // 18 <
+    // (30, 31, 22, 23, 20)
+    val vidaActual = arregloCumpleanos
+            .map { it * 0.8 } // (24, 24.8, 17.7, 18.4, 16)
+            .filter { it > 18 } // (24, 24.8, 18.4)
+            .fold(
+                    100.00,
+                    { acc, d -> acc - d }
+            )
+    println(vidaActual)
 
 }
 
