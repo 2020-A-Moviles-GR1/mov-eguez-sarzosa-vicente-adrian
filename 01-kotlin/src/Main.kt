@@ -210,18 +210,18 @@ abstract class Numeros( // val nuevosNumeros = Numeros(1,2)
 }
 
 class Suma(
-        uno: Int,
-        dos: Int
+        uno: Int, // Parametro
+        dos: Int // Parametro
 ) : Numeros(uno, dos) {
     fun sumar():Int{
-        // this.uno
+        // this.uno o this.dos NO ESTAN DISPONIBLES
         return this.numeroUno + this.numeroDos
     }
 }
 
 class SumaDos(
-        public var uno: Int,
-        public var dos: Int
+        public var uno: Int, // Propiedades
+        public var dos: Int // Propiedades
 ) : Numeros(uno, dos) {
     fun sumar():Int{
         this.uno
