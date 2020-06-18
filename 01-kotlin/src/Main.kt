@@ -168,11 +168,8 @@ fun main(args: Array<String>) {
     val vidaActual = arregloCumpleanos
             .map { it * 0.8 } // (24, 24.8, 17.7, 18.4, 16)
             .filter { it > 18 } // (24, 24.8, 18.4)
-            .fold(
-                    100.00,
-                    { acc, d -> acc - d }
-            )
-    println(vidaActual)
+            .fold(100.00, { acc, d -> acc - d })
+            .also { println(it) }
 
 }
 
@@ -192,3 +189,28 @@ fun calcularSueldo(
 fun imprimirMensaje() { // Unit = Void
     println("")
 }
+
+
+// Clases Abstractas
+
+abstract class NumerosJava{  // val nuevosNumeros = Numeros(1,2)
+    protected val numeroUno:Int
+    private val numeroDos:Int
+    constructor(uno:Int, dos:Int){
+        numeroUno = uno
+        numeroDos = dos
+    }
+}
+abstract class Numeros( // val nuevosNumeros = Numeros(1,2)
+        protected val numeroUno:Int,
+        protected val numeroDos:Int
+){
+}
+
+
+
+
+
+
+
+
