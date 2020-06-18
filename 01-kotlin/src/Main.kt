@@ -139,7 +139,7 @@ fun main(args: Array<String>) {
     // ("a", "b", "c", "d")
     // "abcd"
     val respuestaReduce = arregloCumpleanos // Acumulador 0
-            .reduce( { acumulador, iteracion ->
+            .reduce({ acumulador, iteracion ->
                 return@reduce acumulador + iteracion
             })
     println(respuestaReduce)
@@ -193,21 +193,42 @@ fun imprimirMensaje() { // Unit = Void
 
 // Clases Abstractas
 
-abstract class NumerosJava{  // val nuevosNumeros = Numeros(1,2)
-    protected val numeroUno:Int
-    private val numeroDos:Int
-    constructor(uno:Int, dos:Int){
+abstract class NumerosJava {  // val nuevosNumeros = Numeros(1,2)
+    protected val numeroUno: Int
+    private val numeroDos: Int
+
+    constructor(uno: Int, dos: Int) {
         numeroUno = uno
         numeroDos = dos
     }
 }
+
 abstract class Numeros( // val nuevosNumeros = Numeros(1,2)
-        protected val numeroUno:Int,
-        protected val numeroDos:Int
-){
+        protected val numeroUno: Int,
+        protected val numeroDos: Int
+) {
 }
 
+class Suma(
+        uno: Int,
+        dos: Int
+) : Numeros(uno, dos) {
+    fun sumar():Int{
+        // this.uno
+        return this.numeroUno + this.numeroDos
+    }
+}
 
+class SumaDos(
+        public var uno: Int,
+        public var dos: Int
+) : Numeros(uno, dos) {
+    fun sumar():Int{
+        this.uno
+        this.dos
+        return this.numeroUno + this.numeroDos
+    }
+}
 
 
 
