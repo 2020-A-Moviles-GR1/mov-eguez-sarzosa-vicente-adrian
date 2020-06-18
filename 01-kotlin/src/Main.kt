@@ -89,7 +89,7 @@ fun main(args: Array<String>) {
             .map { iterador: Int ->
                 iterador * -1
             }
-    val respuestaMapDos= arregloCumpleanos
+    val respuestaMapDos = arregloCumpleanos
             .map { iterador: Int ->
                 val nuevoValor = iterador * -1
                 val otroValor = nuevoValor * 2
@@ -103,17 +103,35 @@ fun main(args: Array<String>) {
     // 1) Devolver una expresion (TRUE o FALSE)
     // 2) Nuevo arreglo que cumpla esa expresion
     val respuestaFilter = arregloCumpleanos
-            .filter {
-                iteracion:Int ->
+            .filter { iteracion: Int ->
                 val esMayorA23 = iteracion > 23
                 return@filter esMayorA23
             }
     arregloCumpleanos
-            .filter {
-                iteracion:Int -> iteracion > 23
-            }
+            .filter { it > 23 }
     println(respuestaFilter)
     println(arregloCumpleanos)
+
+    // Any -> OR (Some)
+    // All -> AND (Every)
+    // AND -> TRUE, Todo lo demas falso
+    // OR -> TODO es falso, lo demas era verdadero
+    // 1) Devolver una expresion (TRUE o FALSE)
+    // 2) Devuelve un Booleano
+    // (30, 31, 22, 23, 20)
+    val respuestaAny = arregloCumpleanos
+            .any { iterador: Int ->
+                return@any iterador < 25
+            }
+    println(respuestaAny)
+
+    val respuestaAll = arregloCumpleanos
+            .all { iterador: Int ->
+                return@all iterador > 18
+            }
+    println(respuestaAll)
+
+
 }
 
 fun calcularSueldo(
