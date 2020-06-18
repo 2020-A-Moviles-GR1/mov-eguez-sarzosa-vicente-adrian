@@ -132,6 +132,35 @@ fun main(args: Array<String>) {
     println(respuestaAll)
 
 
+    // Reduce
+    // 1) Devuelve el acumulado
+    // 2) En que valor empieza
+    // Devuelve un numero
+    // (30, 31, 22, 23, 20)
+    // ("a", "b", "c", "d")
+    // "abcd"
+    val respuestaReduce = arregloCumpleanos // Acumulador 0
+            .reduce { acumulador, iteracion ->
+                return@reduce acumulador + iteracion
+            }
+    println(respuestaReduce)
+
+    val respuestaFold = arregloCumpleanos
+            .fold(
+                    100,
+                    { acumulador, iteracion ->
+                        return@fold acumulador - iteracion
+                    }
+            )
+    println(respuestaFold)
+    // forEach -> nada
+    // map -> Arreglo
+    // filter -> Arreglo
+    // all -> Booleano
+    // any -> Booleano
+    // reduce -> Valor
+    // fold -> Valor
+
 }
 
 fun calcularSueldo(
