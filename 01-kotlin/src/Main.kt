@@ -204,8 +204,8 @@ abstract class NumerosJava {  // val nuevosNumeros = Numeros(1,2)
 }
 
 abstract class Numeros( // val nuevosNumeros = Numeros(1,2)
-        protected val numeroUno: Int,
-        protected val numeroDos: Int
+        protected var numeroUno: Int,
+        protected var numeroDos: Int
 ) {
 }
 
@@ -213,24 +213,46 @@ class Suma(
         uno: Int, // Parametro
         dos: Int // Parametro
 ) : Numeros(uno, dos) {
-    fun sumar():Int{
+    fun sumar(): Int {
         // this.uno o this.dos NO ESTAN DISPONIBLES
         return this.numeroUno + this.numeroDos
     }
 }
 
 class SumaDos(
-        public var uno: Int, // Propiedades
-        public var dos: Int // Propiedades
+        uno: Int, // Propiedades
+        dos: Int // Propiedades
 ) : Numeros(uno, dos) {
-    fun sumar():Int{
-        this.uno
-        this.dos
+
+    fun sumar(): Int {
         return this.numeroUno + this.numeroDos
     }
 }
 
-
+class SumarDosNumerosDos(
+        uno: Int,
+        dos: Int
+) : Numeros(uno, dos) {
+    constructor(uno: Int?, dos: Int) {
+        val numUno = if (uno == null) 0 else uno
+        this.numeroUno = numUno
+        this.numeroDos = dos
+        print("Hola 1")
+    }
+    constructor(uno: Int, dos: Int?) {
+        val numDos = if (dos == null) 0 else dos
+        this.numeroUno = uno
+        this.numeroDos = numDos
+        print("Hola 2")
+    }
+    constructor(uno: Int?, dos: Int?) {
+        val numUno = if (uno == null) 0 else uno
+        val numDos = if (dos == null) 0 else dos
+        this.numeroUno = numUno
+        this.numeroDos = numDos
+        print("Hola 3")
+    }
+}
 
 
 
