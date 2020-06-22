@@ -171,7 +171,17 @@ fun main(args: Array<String>) {
             .fold(100.00, { acc, d -> acc - d })
             .also { println(it) }
 
-}
+//    val nuevoNumeroUno = SumarDosNumerosDos(1,1)
+//    val nuevoNumeroDos = SumarDosNumerosDos(null,1)
+//    val nuevoNumeroTres = SumarDosNumerosDos(1,null)
+//    val nuevoNumeroCuatro = SumarDosNumerosDos(null,null)
+    val nuevoNumeroUno = SumarDosNumerosDos(1, 1)
+    val nuevoNumeroDos = SumarDosNumerosDos(null, 1)
+    val nuevoNumeroTres = SumarDosNumerosDos(1, null)
+    val nuevoNumeroCuatro = SumarDosNumerosDos(null, null)
+
+
+}// Cerrado MAIN
 
 fun calcularSueldo(
         sueldo: Double, // Requeridos!
@@ -233,23 +243,24 @@ class SumarDosNumerosDos(
         uno: Int,
         dos: Int
 ) : Numeros(uno, dos) {
-    constructor(uno: Int?, dos: Int) {
-        val numUno = if (uno == null) 0 else uno
-        this.numeroUno = numUno
-        this.numeroDos = dos
+    constructor(uno: Int?, dos: Int) : this(
+            if (uno == null) 0 else uno,
+            dos
+    ) {
         print("Hola 1")
     }
-    constructor(uno: Int, dos: Int?) {
-        val numDos = if (dos == null) 0 else dos
-        this.numeroUno = uno
-        this.numeroDos = numDos
+
+    constructor(uno: Int, dos: Int?) : this(
+            uno,
+            if (dos == null) 0 else dos
+    ) {
         print("Hola 2")
     }
-    constructor(uno: Int?, dos: Int?) {
-        val numUno = if (uno == null) 0 else uno
-        val numDos = if (dos == null) 0 else dos
-        this.numeroUno = numUno
-        this.numeroDos = numDos
+
+    constructor(uno: Int?, dos: Int?) : this(
+            if (uno == null) 0 else uno,
+            if (dos == null) 0 else dos
+    ) {
         print("Hola 3")
     }
 }
