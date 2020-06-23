@@ -179,9 +179,34 @@ fun main(args: Array<String>) {
     val nuevoNumeroDos = SumarDosNumerosDos(null, 1)
     val nuevoNumeroTres = SumarDosNumerosDos(1, null)
     val nuevoNumeroCuatro = SumarDosNumerosDos(null, null)
+//    println(SumarDosNumerosDos.arregloNumeros)
+//    SumarDosNumerosDos.agregarNumero(1)
+//    println(SumarDosNumerosDos.arregloNumeros)
+//    SumarDosNumerosDos.eliminarNumero(0)
+//    println(SumarDosNumerosDos.arregloNumeros)
+    println(SumarDosNumerosDos.arregloNumeros)
+    SumarDosNumerosDos.agregarNumero(1)
+    println(SumarDosNumerosDos.arregloNumeros)
+    SumarDosNumerosDos.eliminarNumero(0)
+    println(SumarDosNumerosDos.arregloNumeros)
 
-
+    var nombre: String? = null
+    nombre = "Adrian"
+    imprimirNombre(nombre)
+//    if(nombre != null){
+//        println(nombre.length)
+//    }
 }// Cerrado MAIN
+
+fun imprimirNombre(nombre: String?) {
+    //    if (nombre != null) {
+    //        println(nombre.length)
+    //    }
+    println(nombre?.length?.toInt()?.toDouble()) // Elvis Operator
+                            // Null Safe CALLS
+//    val numeroCar = if(nombre!= null)
+//    val numeroCaracteres = nombre?.length
+}
 
 fun calcularSueldo(
         sueldo: Double, // Requeridos!
@@ -243,6 +268,11 @@ class SumarDosNumerosDos(
         uno: Int,
         dos: Int
 ) : Numeros(uno, dos) {
+
+    init {
+        println("Hola INIT")
+    }
+
     constructor(uno: Int?, dos: Int) : this(
             if (uno == null) 0 else uno,
             dos
@@ -254,6 +284,7 @@ class SumarDosNumerosDos(
             uno,
             if (dos == null) 0 else dos
     ) {
+
         print("Hola 2")
     }
 
@@ -263,8 +294,27 @@ class SumarDosNumerosDos(
     ) {
         print("Hola 3")
     }
+
+    companion object {
+        val arregloNumerosInicial = arrayListOf(1, 2, 3, 4)
+        val arregloNumeros = arrayListOf(1, 2, 3, 4)
+
+        fun agregarNumero(nuevoNumero: Int) {
+            this.arregloNumeros.add(nuevoNumero)
+        }
+
+        fun eliminarNumero(posicionNumero: Int) {
+            this.arregloNumeros.removeAt(posicionNumero)
+        }
+    }
+
 }
 
+class BaseDeDatos {
+    companion object {
+        val datos = arrayListOf<Int>()
+    }
+}
 
 
 
