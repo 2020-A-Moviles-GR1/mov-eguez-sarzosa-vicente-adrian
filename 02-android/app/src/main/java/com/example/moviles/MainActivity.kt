@@ -21,6 +21,20 @@ class MainActivity : AppCompatActivity() {
                 irListView()
             }
 
+        btn_intent_respuesta
+            .setOnClickListener {
+                irAIntentConRespuesta()
+            }
+
+    }
+
+    fun irAIntentConRespuesta() {
+        val intentExplicito = Intent(
+            this,
+            IntentEnviaParametros::class.java
+        )
+        intentExplicito.putExtra("numero",2)
+        startActivity(intentExplicito)
     }
 
     fun irListView() {
