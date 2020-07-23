@@ -3,6 +3,7 @@ package com.example.moviles
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -26,6 +27,23 @@ class MainActivity : AppCompatActivity() {
                 irAIntentConRespuesta()
             }
 
+        btn_intent_implicito
+            .setOnClickListener {
+                enviarIntentConRespuesta()
+            }
+
+
+    }
+
+    fun enviarIntentConRespuesta(){
+        val intentConRespuesta = Intent(
+            Intent.ACTION_PICK,
+            ContactsContract.CommonDataKinds.Phone.CONTENT_URI
+        )
+
+        // this.startActivityForResult(intent, codigoDeRespuesta)
+        // 304 lo pusimos nosotros, no es ningun numero en especial
+        startActivityForResult(intentConRespuesta, 304)
     }
 
     fun irAIntentConRespuesta() {
