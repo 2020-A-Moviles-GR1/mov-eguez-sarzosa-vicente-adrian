@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.provider.ContactsContract
 import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -92,7 +93,7 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                     305 -> {
-                        if (data!= null){
+                        if (data != null) {
                             val nombre = data.getStringExtra("nombre")
                             val edad = data.getIntExtra("edad", 0)
                             Log.i("resultado", "Nombre: ${nombre} Edad: ${edad}")
@@ -113,6 +114,22 @@ class MainActivity : AppCompatActivity() {
             IntentEnviaParametros::class.java
         )
         intentExplicito.putExtra("numero", 2)
+
+        val adrian = Usuario(
+            "Adrian",
+            31,
+            Date(),
+            1.0
+        )
+        val cachetes = Mascota(
+            "Cachetes",
+            adrian
+        )
+        val arregloMascotas = arrayListOf<Mascota>(cachetes)
+
+        intentExplicito.putExtra("cachetes", cachetes)
+        intentExplicito.putExtra("arregloMascotas", arregloMascotas)
+
         startActivity(intentExplicito)
     }
 
