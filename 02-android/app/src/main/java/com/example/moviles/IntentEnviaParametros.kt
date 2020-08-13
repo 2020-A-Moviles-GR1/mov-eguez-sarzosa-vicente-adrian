@@ -44,8 +44,6 @@ class IntentEnviaParametros : AppCompatActivity() {
 
         }
 
-
-
         btn_devolver_respuesta
             .setOnClickListener {
                 // Metodo Clase
