@@ -9,19 +9,13 @@ module.exports = {
 
   attributes: {
 
-    //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
-    //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
-    //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-
-
-    //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
-    //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
-    //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
-
-
-    //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
-    //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
-    //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
+    nombre:{
+      type: 'string'
+    },
+    usuario: { // Many to One (nombre FK) - mismo nombre q la relacion
+      model: 'usuario',
+      required: true // (Es opcional 1 muchos 0 muchos)
+    }
 
   },
 
