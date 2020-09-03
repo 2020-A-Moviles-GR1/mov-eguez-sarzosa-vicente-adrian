@@ -2,17 +2,12 @@ package com.example.moviles
 
 import java.util.*
 
-class UsuarioHttp(
+class PokemonHttp(
+    val createdAt: Long,
+    val updatedAt: Long,
     var id: Int,
-    var createdAt: Long,
-    var updatedAt: Long,
-    var cedula: String,
     var nombre: String,
-    var correo: String,
-    var estadoCivil: String,
-    var password: String,
-    var pokemons: ArrayList<PokemonHttp>
-
+    var usuario: Int
 ) {
     var fechaCreacion: Date
     var fechaActualizacion: Date
