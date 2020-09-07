@@ -6,6 +6,7 @@ import kotlinx.android.synthetic.main.activity_recycler_v_iew.*
 import java.util.ArrayList
 
 class RecyclerVIewActivity : AppCompatActivity() {
+    var numeroLikes = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler_v_iew)
@@ -57,11 +58,12 @@ class RecyclerVIewActivity : AppCompatActivity() {
             rv_usuarios
         )
     }
+
     fun iniciarRecyclerView(
         lista: List<UsuarioHttp>,
         actividad: RecyclerVIewActivity,
         recycler_view: androidx.recyclerview.widget.RecyclerView
-    ){
+    ) {
         val adaptadorUsuario = RecyclerAdaptador(
             lista,
             actividad,
@@ -71,6 +73,11 @@ class RecyclerVIewActivity : AppCompatActivity() {
         rv_usuarios.itemAnimator = androidx.recyclerview.widget.DefaultItemAnimator()
         rv_usuarios.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(actividad)
         adaptadorUsuario.notifyDataSetChanged()
+    }
+
+    fun anadirLikesEnActividad(numero: Int) {
+        this.numeroLikes = this.numeroLikes + numero
+        tv_titulo_rv.text = numeroLikes.toString()
     }
 }
 

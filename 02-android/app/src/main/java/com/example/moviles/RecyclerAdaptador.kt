@@ -19,12 +19,24 @@ class RecyclerAdaptador(
 
         val nombreTextView: TextView
         val cedulaTextView: TextView
+        val likesTextView: TextView
         val acccionButton: Button
+        var numeroLikes = 0
 
         init {
             nombreTextView = view.findViewById(R.id.tv_nombre)
             cedulaTextView = view.findViewById(R.id.tv_cedula)
             acccionButton = view.findViewById(R.id.btn_accion)
+            likesTextView = view.findViewById(R.id.tv_likes)
+            acccionButton.setOnClickListener {
+                this.anadirLike()
+            }
+        }
+
+        fun anadirLike(){
+            this.numeroLikes = this.numeroLikes + 1
+            likesTextView.text = this.numeroLikes.toString()
+            contexto.anadirLikesEnActividad(1)
         }
 
     }
@@ -57,6 +69,8 @@ class RecyclerAdaptador(
         holder.nombreTextView.text = usuario.nombre
         holder.cedulaTextView.text = usuario.cedula
         holder.acccionButton.text = "Like ${usuario.nombre}"
+
+        holder.likesTextView.text = "0"
 
     }
 
